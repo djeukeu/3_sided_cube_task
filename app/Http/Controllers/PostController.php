@@ -29,16 +29,17 @@ class PostController extends Controller
     /**
      * Display the specified post.
      */
-    public function show(Post $post)
+    public function show(string $id)
     {
-        return new PostResource(Post::findOrFail($post->id));
+        return new PostResource(Post::findOrFail($id));
     }
 
     /**
      * Update the specified post.
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdatePostRequest $request, string $id)
     {
+        $post = Post::find($id);
         $post->update($request->all());
         return new PostMessageResource('Post Updated Successfully');
     }
@@ -46,8 +47,9 @@ class PostController extends Controller
     /**
      * Remove the specified post.
      */
-    public function destroy(Post $post)
+    public function destroy(string $id)
     {
+        $post = Post::find($id);
         $post->delete();
         return new PostMessageResource('Post Deleted Successfully');
     }
