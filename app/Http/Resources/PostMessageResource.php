@@ -7,7 +7,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostMessageResource extends JsonResource
 {
-
     public $message;
 
     public function __construct($message)
