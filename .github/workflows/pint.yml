@@ -1,0 +1,32 @@
+name: Pint
+run-name: ${{ github.actor }} triggered the Pint ci
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  run-pint:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup PHP and Composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2.11"
+          tools: composer
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+      - name: Pint
+        run: |
+          composer install
+          composer pint
