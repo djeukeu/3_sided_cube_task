@@ -38,6 +38,10 @@
     "scripts": {
         "pint": "./vendor/bin/pint --test",
         "pint-fix": "./vendor/bin/pint",
+        "project-setup": [
+            "php -r \"copy('.env.example', '.env');\"",
+            "php artisan key:generate"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
