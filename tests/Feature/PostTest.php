@@ -7,7 +7,6 @@ use Tests\TestCase;
 
 class PostTest extends TestCase
 {
-
     public function test_get_all_post_request(): void
     {
         $response = $this->getJson('/api/posts');

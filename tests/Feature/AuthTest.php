@@ -7,7 +7,6 @@ use Tests\TestCase;
 
 class AuthTest extends TestCase
 {
-
     use RefreshDatabase;
 
     public function test_register_post_request(): void
