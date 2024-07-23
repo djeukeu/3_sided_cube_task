@@ -8,10 +8,28 @@ use App\Http\Resources\PostMessageResource;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
 
+/**
+ * Class PostController.
+ * @author  Christian <christian@djeukeu.com>
+ */
 class PostController extends Controller
 {
     /**
-     * Display a listing of posts.
+     * Get all posts.
+     * @OA\Get(
+     *     path="/api/posts",
+     *     operationId="getAllPosts",
+     *     @OA\Response(
+     *         response=200,
+     *         description="list of posts",
+     *         @OA\JsonContent(
+     *         type="object",
+     *         @OA\Property(property="data", type="object"),
+     *         @OA\Property(property="link", type="object"),
+     *         @OA\Property(property="meta", type="object"),
+     *       ),
+     *     ),
+     * )
      */
     public function index()
     {
