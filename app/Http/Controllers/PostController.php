@@ -48,7 +48,7 @@ class PostController extends Controller
             "title" => $request->title,
             "content" => $request->content,
             "author" => $request->author,
-            "show" => !($scheduleOn > $now),
+            "show" => $scheduleOn < $now,
             "schedule_on" => $scheduleOn,
         ]));
     }
