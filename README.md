@@ -13,6 +13,7 @@
 - Lauch the docker container, using: `docker-compose up` or setup a MySQL database and update the credential in `.env` file
 - Run the db migration, using: `php artisan migrate`
 - Lauch the project, using: `php artisan serve`
+- Lauch the project scheduler, using: `php artisan schedule:work`
 
 ## Commands
 

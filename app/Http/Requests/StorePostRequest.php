@@ -20,6 +20,7 @@ class StorePostRequest extends FormRequest
             'title' => 'required',
             'content' => 'required',
             'author' => 'required',
+            'schedule_on' => ['sometimes', 'required'],
         ];
     }
 }

@@ -15,6 +15,8 @@ return new class () extends Migration {
             $table->string('title');
             $table->text('content');
             $table->string('author');
+            $table->boolean('show')->default(true);
+            $table->dateTime('schedule_on')->nullable();
             $table->timestamps();
         });
     }
