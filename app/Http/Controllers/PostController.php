@@ -42,14 +42,14 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         $now = date("Y-m-d H:i:s");
-        $schedule_on = date('Y-m-d H:i:s', $request->schedule_on);
+        $scheduleOn = date('Y-m-d H:i:s', $request->schedule_on);
 
         return new PostResource(Post::create([
             "title" => $request->title,
             "content" => $request->content,
             "author" => $request->author,
-            "show" => !($schedule_on > $now),
-            "schedule_on" => $schedule_on,
+            "show" => !($scheduleOn > $now),
+            "schedule_on" => $scheduleOn,
         ]));
     }
 
